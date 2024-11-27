@@ -1,17 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"awesomeProject/routes"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	i := 1
-	for i <= 3 {
-		fmt.Println(i)
-		i += 1
-	}
+	// Initialize the Gin router
+	r := gin.Default()
 
-	fmt.Println("This is the end")
+	// Register routes
+	routes.RegisterUserRoutes(r)
 
-	for j := 0; j <= 5; j++ {
-		fmt.Println(j)
-	}
+	// Start the server
+	r.Run(":8080")
 }
